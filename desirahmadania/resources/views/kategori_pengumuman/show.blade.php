@@ -11,27 +11,27 @@
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">ID</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $KategoriPengumuman->id !!}</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $kategoriPengumuman->id !!}</label>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">Nama</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $KategoriPengumuman->nama !!}</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $kategoriPengumuman->nama !!}</label>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">Users Id</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $KategoriPengumuman->users_id !!}</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $kategoriPengumuman->users_id !!}</label>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">Create</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $KategoriPengumuman->created_at->format('d/m/Y H:i') !!}</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $kategoriPengumuman->created_at->format('d/m/Y H:i') !!}</label>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">Update</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $KategoriPengumuman->updated_at->format('d/m/Y H:i') !!}</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $kategoriPengumuman->updated_at->format('d/m/Y H:i') !!}</label>
                 </div>
 
                 <div class="form-group row mb-0">

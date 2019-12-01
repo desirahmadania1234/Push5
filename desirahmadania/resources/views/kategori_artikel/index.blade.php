@@ -10,7 +10,7 @@
                 <div class="card-body">
                 <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
     
-                <table border="1">
+                <table Border="1">
                     <tr>
                         <td>ID</td>
                         <td>Nama</td>
@@ -28,7 +28,16 @@
                         <td>{!! $item->created_at->format('d/m/Y H:i') !!}</td>
                         <td>
                         <a href="{!! route('kategori_artikel.show' ,[$item->id]) !!}"  
-                                class="btn btn-sm btn-primary">Lihat</a>                   
+                                class="btn btn-sm btn-primary">Lihat</a> 
+
+                        <a href="{!! route('kategori_artikel.edit' ,[$item->id]) !!}"  
+                                class="btn btn-sm btn-warning">Ubah</a>  
+
+                        {!! Form::open(['route' => ['kategori_artikel.destroy', $item->id],'method'=>'delete']) !!} 
+
+                        {!! Form::submit('Hapus',['class'=>'btn btn- sm btn-danger','onclick'=>"return confirm('apakah anda yakin ingin menghapus vidio ini?')"]); !!}
+
+                        {!! Form::close() !!}              
                     </tr>
 
                         @endforeach

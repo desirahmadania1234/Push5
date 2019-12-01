@@ -10,7 +10,7 @@
                 <div class="card-body">
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Id</label>
+                    <label class="col-md-4 col-form-label text-md-right">ID</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->id !!}</label>
                 </div>
 
@@ -20,22 +20,22 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">keterangan</label>
+                    <label class="col-md-4 col-form-label text-md-right">Keterangan</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->keterangan !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">path</label>
+                    <label class="col-md-4 col-form-label text-md-right">Path</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->path !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">users</label>
+                    <label class="col-md-4 col-form-label text-md-right">Users Id</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->users_id !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">create</label>
+                    <label class="col-md-4 col-form-label text-md-right">Create</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->created_at->format('d/m/Y H:i') !!}</label>
                 </div>
 

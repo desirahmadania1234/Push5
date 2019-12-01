@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\KategoriBerita;
 
 
-class kategoriberitacontroller extends Controller
+class KategoriBeritaController extends Controller
 {
     public function index(){
         
@@ -17,9 +17,12 @@ class kategoriberitacontroller extends Controller
 
     public function show($id){
 
-        $KategoriBerita=KategoriBerita::find($id);
+        $kategoriBerita=KategoriBerita::find($id);
+        if(empty($kategoriBerita)){
+            return redirect(route('kategori_berita.index'));
+        }
 
-        return view('kategori_Berita.show' ,compact('KategoriBerita'));
+        return view('kategori_Berita.show' ,compact('kategoriBerita'));
 
     }
 
@@ -34,5 +37,36 @@ class kategoriberitacontroller extends Controller
         return redirect(route('kategori_berita.index'));
     }
 
+
+    public function edit($id){
+    $kategoriBerita=KategoriBerita::find($id);
+
+    
+
+    if(empty($kategoriBerita)){
+        return redirect(route('kategori_berita.index'));
+    }
+
+    return view('kategori_berita.edit', compact('kategoriBerita'));
+
+}
+
+public function destroy($id){
+    $kategoriBerita=KategoriBerita::find($id);
+
+    if(empty($kategoriBerita)){
+        return redirect(route('kategori_berita.index'));
+
+}
+
+$kategoriBerita->delete();
+return redirect(route('kategori_berita.index'));
+}
+public function trash(){
+        
+    $listKategoriBerita=KategoriBerita::onlyTrashed(); 
+    return view('kategori_berita.index' ,compact('listKategoriBerita'));
+    
+}
 }
 

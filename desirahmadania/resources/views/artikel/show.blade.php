@@ -10,32 +10,32 @@
                 <div class="card-body">
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Id</label>
+                    <label class="col-md-4 col-form-label text-md-right">ID</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->id !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">nama</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->nama !!}</label>
+                    <label class="col-md-4 col-form-label text-md-right">judul</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->judul !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">keterangan</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->keterangan !!}</label>
+                    <label class="col-md-4 col-form-label text-md-right">Isi</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->isi !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">path</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->path !!}</label>
+                    <label class="col-md-4 col-form-label text-md-right">Kategori Id</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->kategori_artikel_id !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">users</label>
-                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->users_id->format('d/m/Y H:i') !!}</label>
+                    <label class="col-md-4 col-form-label text-md-right">users Id</label>
+                    <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->users_id !!}</label>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">create</label>
+                    <label class="col-md-4 col-form-label text-md-right">Create</label>
                     <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->created_at->format('d/m/Y H:i') !!}</label>
                 </div>
  

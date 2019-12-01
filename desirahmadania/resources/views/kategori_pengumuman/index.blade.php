@@ -9,7 +9,7 @@
                 <div class="card-body">
                 <a href="{!! route('kategori_pengumuman.create') !!}" class="btn btn-primary">Tambah Data</a>
            
-                <table border="1">
+                <table Border="1">
                     <tr>
                         <td>ID</td>
                         <td>Nama</td>
@@ -27,8 +27,17 @@
                         <td>{!! $item->created_at->format('d/m/Y H:i') !!}</td>
                         <td>
                         <a href="{!! route('kategori_pengumuman.show' ,[$item->id]) !!}"  
-                                class="btn btn-sm btn-primary">Lihat</a>                   
-                    </tr>
+                                class="btn btn-sm btn-primary">Lihat</a>     
+                                <a href="{!! route('kategori_pengumuman.edit' ,[$item->id]) !!}"  
+                                class="btn btn-sm btn-warning">ubah</a>      
+
+                                {!! Form::open(['route' => ['kategori_pengumuman.destroy',$item->id],'method'=>'delete']) !!} 
+
+                                {!! Form::submit('Hapus',['class'=>'btn btn- sm btn-danger','onclick'=>"return confirm('apakah anda yakin ingin menghapus data ini?')"]); !!}
+
+                                {!! Form::close() !!}     
+                        </tr>
+                   
 
                         @endforeach
 

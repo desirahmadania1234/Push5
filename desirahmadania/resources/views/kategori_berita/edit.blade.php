@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah Kategori Galeri</div>   
+                <div class="card-header">Tambah Kategori Artikel</div>   
                              
                 <div class="card-body">
-                {!! Form::open(['route'=> 'kategori_galeri.store','method' => 'post']) !!}
-                     @include('kategori_galeri.form')
+                    {!!Form::model($kategoriBerita, ['route' => ['kategori_berita.update', $kategoriBerita->id],'method'=>'patch'])!!}
+                     @include('kategori_berita.form')
                      {!! Form::close() !!}
-                
+                </form>
 
                 </div>
             </div>
@@ -20,4 +20,3 @@
 </div>
 
 @endsection
- 

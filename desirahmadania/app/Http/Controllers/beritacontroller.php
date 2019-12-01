@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Berita;
+use Illuminate\Http\Request;
+use App\KategoriBerita;
 
-class beritacontroller extends Controller
+class BeritaController extends Controller
 {
     public function index(){
         
@@ -16,11 +17,16 @@ class beritacontroller extends Controller
 
     public function show($id){
         $Berita=Berita::find($id);
+        if(empty($Berita)){
+            return redirect(route('berita.index'));
+        }
         return view('berita.show' ,compact('Berita'));
     }
 
     public function create(){
-        return view('berita.create');
+        $kategoriBerita=KategoriBerita::pluck('nama','id');
+
+        return view('berita.create', compact('kategoriBerita'));
     }
 
     public function store(Request $request){
@@ -29,4 +35,54 @@ class beritacontroller extends Controller
 
         return redirect(route('berita.index'));
     }
+
+public function edit($id){
+    $Berita=Berita::find($id);
+ 
+
+    if(empty($Berita)){
+        return redirect(route('berita.index'));
+    }
+    $kategoriBerita=KategoriBerita::pluck('nama','id');
+
+    return view('berita.edit', compact('Berita','kategoriBerita'));
+
+}
+
+
+public function update($id,Request $request){
+    $Berita=Berita::find($id);
+    $input= $request->all();
+
+    
+
+    if(empty($Brita)){
+        return redirect(route('berita.index'));
+
+}
+    $Berita->update($input);
+
+    return redirect(route ('berita.index'));
+
+}
+public function destroy($id){
+    $Berita=Berita::find($id);
+
+    
+
+    if(empty($Berita)){
+        return redirect(route('berita.index'));
+
+}
+
+$Berita->delete();
+return redirect(route('berita.index'));
+}
+public function trash(){
+        
+    $listBerita=Berita::onlyTrashed(); 
+    return view('berita.index' ,compact('listBerita'));
+    
+}
+
 }

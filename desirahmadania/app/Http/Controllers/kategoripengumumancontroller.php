@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KategoriPengumuman;
 
-class kategoripengumumancontroller extends Controller
+class KategoriPengumumanController extends Controller
 {
     public function index(){
         
@@ -16,9 +16,12 @@ class kategoripengumumancontroller extends Controller
 
     public function show($id){
 
-        $KategoriPengumuman=KategoriPengumuman::find($id);
+        $kategoriPengumuman=KategoriPengumuman::find($id);
+        if(empty($kategoriPengumuman)){
+            return redirect(route('kategori_pengumuman.index'));
+        }
 
-        return view('kategori_pengumuman.show' ,compact('KategoriPengumuman'));
+        return view('kategori_pengumuman.show' ,compact('kategoriPengumuman'));
 
     }
 
@@ -32,4 +35,52 @@ class kategoripengumumancontroller extends Controller
 
         return redirect(route('kategori_pengumuman.index'));
     }
+
+public function edit($id){
+    $kategoriPengumuman=KategoriPengumuman::find($id);
+
+    
+
+    if(empty($kategoriPengumuman)){
+        return redirect(route('kategori_pengumuman.index'));
+    }
+
+    return view('kategori_pengumuman.edit', compact('kategoriPengumuman'));
+
+}
+
+public function update($id,Request $request){
+    $kategoriPengumuman=KategoriPengumuman::find($id);
+    $input= $request->all();
+
+    
+
+    if(empty($kategoriPengumuman)){
+        return redirect(route('kategori_pengumuman.index'));
+
+}
+    $kategoriPengumuman->update($input);
+
+    return redirect(route ('kategori_pengumuman.index'));
+
+}
+public function destroy($id){
+    $kategoriPengumuman=KategoriPengumuman::find($id);
+
+    
+
+    if(empty($kategoriPengumuman)){
+        return redirect(route('kategori_pengumuman.index'));
+
+}
+
+$kategoriPengumuman->delete();
+return redirect(route('kategori_pengumuman.index'));
+}
+public function trash(){
+        
+    $listKategoriPengumuman=KategoriPengumuman::onlyTrashed(); 
+    return view('kategori_pengumuman.index' ,compact('listKategoriPengumuman'));
+    
+}
 }

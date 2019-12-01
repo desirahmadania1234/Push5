@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Pengumuman;
+use Illuminate\Http\Request;
+use App\KategoriPengumuman;
 
-class pengumumancontroller extends Controller
+
+class PengumumanController extends Controller
 {
     public function index(){
         
@@ -16,11 +18,15 @@ class pengumumancontroller extends Controller
 
     public function show($id){
         $Pengumuman=Pengumuman::find($id);
+        if(empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+        }
         return view('pengumuman.show' ,compact('Pengumuman'));
     }
 
     public function create(){
-        return view('pengumuman.create');
+        $kategoriPengumuman=KategoriPengumuman::pluck('nama','id');
+        return view('pengumuman.create',compact('kategoriPengumuman'));
     }
 
     public function store(Request $request){
@@ -29,4 +35,54 @@ class pengumumancontroller extends Controller
 
         return redirect(route('pengumuman.index'));
     }
-}
+
+    public function edit($id){
+        $Pengumuman=Pengumuman::find($id);
+     
+    
+        if(empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+        }
+        $kategoriPengumuman=KategoriPengumuman::pluck('nama','id');
+    
+        return view('pengumuman.edit', compact('Pengumuman','kategoriPengumuman'));
+    
+    }
+    
+    
+    public function update($id,Request $request){
+        $Pengumuman=Pengumuman::find($id);
+        $input= $request->all();
+    
+        
+    
+        if(empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+    
+    }
+        $Pengumuman->update($input);
+    
+        return redirect(route ('pengumuman.index'));
+    
+    }
+    public function destroy($id){
+        $Pengumuman=Pengumuman::find($id);
+    
+        
+    
+        if(empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+    
+    }
+    
+    $Pengumuman->delete();
+    return redirect(route('pengumuman.index'));
+    }
+    public function trash(){
+        
+        $listPengumuman=Pengumuman::onlyTrashed(); 
+        return view('pengumuman.index' ,compact('listPengumuman'));
+        
+    }
+    
+    }
